@@ -1,0 +1,12 @@
+.wrapper{ max-width: 1200px; margin:auto;}
+h1.title{font-size: 2em; padding: 1.5em 0; text-align: center;}
+
+.bt{border: 1px solid #ccc; padding: .5em 1; margin:.5em;}
+.bt.bt-yellow{border: 1px solid #ffcd7c;}
+.bt.bt-green{border: 1px solid #7cff92;}
+.bt.bt-blue{border: 1px solid #7cdaff;}
+.bt.bt-red{border: 1px solid #ff967c;}
+
+.bt-wrapper{text-align: center; padding: 1em 0;}
+.stage-wrapper{border:10px solid #eee; padding: 1em;}
+.stage-wrapper>.hero{width: 300px; height: 300px; background-color: red;}
