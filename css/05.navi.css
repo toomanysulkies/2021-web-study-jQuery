@@ -1,0 +1,15 @@
+.wrapper {width: 1000px; margin: auto;}
+.header-wrapper {width:160px; height:100vh; background-color: #222; color: #f9f9f9; float: left;}
+.body-wrapper{width: 840px;height: 100vh; float: right;}
+h2.title{ font-size: 2em; padding: 1.5em 0; text-align: center;}
+
+
+
+.header-wrapper > .logo {margin-bottom: 3em;}
+.header-wrapper a,
+.header-wrapper span {display: inline-block; padding: 1em; cursor: pointer;}
+.header-wrapper  .sub-wrapper .sub:hover {background-color: bisque; color: #222;} 
+
+.
+
+

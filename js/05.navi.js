@@ -1,6 +1,6 @@
 /*********************************글로벌 설정*****************************************/
 
-$('.sub-wrapper').slideUp(0)
+$('.sub-wrap').slideUp(0)
 
 
 
@@ -13,8 +13,9 @@ $('.sub-wrapper').slideUp(0)
 
 /************************************이벤트 등록*************************************/
 // $('.header-wrapper').on('mouseenter', onHeaderEnter)
-$('.navi-wrapper').on('mouseenter', onNaviEnter)
-$('.header-wrapper').on('mouseleave', onHeaderLeave)
+// $('.navi').on('mouseenter', onNaviEnter)
+// $('.navi').on('mouseleave', onNaviLeave)
+$('.navi >span').on('click', onNaviClick)
 
 
 
@@ -24,9 +25,12 @@ $('.header-wrapper').on('mouseleave', onHeaderLeave)
 /*function onHeaderEnter() {
 	$(this).find('.sub-wrapper').stop().slideDown(500)
 }*/
-function onNaviEnter() {
-	$(this).next().stop().slideDown(500)
-}
-function onHeaderLeave() {
-	$(this).find('.sub-wrapper').stop().slideUp(500)
+// function onNaviEnter() {
+// 	$(this).find('.sub-wrap').stop().slideDown(500)
+// }
+// function onNaviLeave() {
+// 	$(this).find('.sub-wrap').stop().slideUp(500)
+// }
+function onNaviClick() {
+	$(this).next('.sub-wrap').stop().slideToggle(500)
 }
