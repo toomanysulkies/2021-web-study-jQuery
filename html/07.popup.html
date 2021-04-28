@@ -12,6 +12,9 @@
 	<script src="../js/jquery-3.6.0.min.js"></script>
 	<script src="../js/bootstrap.min.js"></script>
 	<script src="../js/util.js"></script>
+
+
+	
 </head>
 <body>
 <div class="container">
@@ -22,15 +25,36 @@
 	<button class="btn btn-success">윈도우팝업</button>
 	<button class="btn btn-secondary">윈도우팝업</button> -->
 
-	<div class="text-center my-5">
+	<div class="title-wrapper text-center my-5">
 		<h1 class="h1">윈도우팝업/모달팝업</h1>
 	</div>
-  <div class="br-wrap text-center">
-	<button class="btn btn-primary bt-win">윈도우팝업</button>
-	<button class="btn btn-success bt-modal">모달팝업</button></div>
+  <div class="bt-wrap text-center">
+		<div class="py-2"><a href="./07.window-popup.html" target="_self " class="btn btn-primary">
+			현재창 링크((A tag)
+		</a>
+		<a href="./07.window-popup.html" target="_blank" class="btn bt-win btn-primary">
+			새창 링크(A tag)
+		</a>
+	</div>
+	 <div class="py-2">
+	<button class="bt-link btn btn-info">현재창 링크(javascript: location.href)</button>
+	<button class="bt-win btn   btn-info">새창 링크(javascript: window.open)</button>
+	<button class="bt-popup btn   btn-info">팝업 링크(javascript: window.open)</button></div>
+	<div class="py-2">
+	<button class="bt-modal btn  btn-success">모달팝업</button></div></div>
 </div>
 
-
+<div class="modal-wrapper">
+	<div class="modal-wrap">
+		<div class="modals">
+		<h2 class="title h2">모달창 제목</h2>
+		<div class="content">모달 내용입니다.</div>
+		<div class="footer">
+			<button class="bt-close btn btn-danger"></button>
+		</div>
+	</div>
+</div>
+</div>
 
 
 
