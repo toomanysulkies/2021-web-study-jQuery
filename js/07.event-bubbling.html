@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>이벤트 버블링/전파</title>
+	<link rel="stylesheet" href="../css/base.css">
+	<style>
+.box1{width: 500px; height: 500px; background-color: blue;}
+.box2{width: 300px; height: 300px; background-color: rgb(255, 0, 170);}
+.box3{width: 100px; height: 100px; background-color: rgba(139, 219, 9, 0.712);}
+	</style>
+	<script src="../js/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+
+<div class="box box1">
+	<div class="box box2">
+		<div class="box box3"></div>
+	</div>
+</div>
+
+
+
+
+<script>
+	$('.box1').on('click', onBox1click)
+	$('.box2').on('click', onBox2click)
+	$('.box3').on('click', onBox3click)
+
+	function onBox1click(e){
+ console.log('box1');
+	}
+	function onBox2click(e){
+ console.log('box2');
+	}
+	function onBox3click(e){
+ console.log('box3')
+ e.stopPropagation() //부모에게 클릭을 전파하지 않게 막아줌//
+	}
+</script>
+	
+</body>
+</html>

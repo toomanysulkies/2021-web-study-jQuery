@@ -5,7 +5,13 @@
 position: fixed;
 top:0; left: 0;}
 
-.modal-wrapper .modal-wrap{display: table; width:100%; height: 100%;} 
-.modal-wrapper .modal-wrap .modals{ display: table-cell; text-align: center; vertical-align: middle;}
+.modal-wrapper .modal-out-wrap{display: table; width:100%; height: 100%; } 
+.modal-wrapper .modal-out-wrap .modal-in-wrap{ display: table-cell; text-align: center; vertical-align: middle;}
+.modal-wrapper .modal-out-wrap .modal-in-wrap .modal-wrap{padding: 2em; background-color: #fff; display:inline-block;
+	 min-width:400px; position: relative;}
 
 
+.modal-wrapper .title{padding: 1.5em 4em 0.5em 4em;}
+.modal-wrapper .content{padding: 1.5em; margin-bottom: 1em; border-top: 1px solid#ddd; border-bottom: 1px solid #ddd;}
+.modal-wrapper .bt-close2{ padding:.5em 0.75em; font-size: 1.5em; background-color: #dc3545; position: absolute; top:0; right: 0; cursor: pointer;}
+.modal-wrapper .footer{padding: 1em;}
