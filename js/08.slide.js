@@ -44,14 +44,14 @@ $('.slide-stage .bt-prev').on('click', onPrevClick)
 $('.slide-stage .bt-next').on('click', onNextClick)
 
 /*************** 이벤트 콜백 *****************/
-
 function onPrevClick() {
-	if (idx == 0) idx = 5
-	else idx--
+	idx = (idx === 0) ? lastIdx : idx - 1
 	$('.slide-wrap .slide').eq(idx).css('z-index', zIdx++)
+		.stop().fadeOut(0).fadeIn(500)
 }
+
 function onNextClick() {
-	if (idx === 5) idx = 0
-	else idx++
+	idx = (idx === lastIdx) ? 0 : idx + 1
 	$('.slide-wrap .slide').eq(idx).css('z-index', zIdx++)
+		.stop().fadeOut(0).fadeIn(500)
 }
