@@ -7,3 +7,8 @@
 .slide-stage > .slide-wrap {position: relative; z-index: 1;}
 .slide-stage > .slide-wrap > .slide {position: absolute; width: 100%; z-index: 1;} 
 
+.pager-wrapper{
+	text-align: center; margin:.5em 0;
+}
+.pager-wrapper > .pager {margin:.25em; cursor: pointer;  color: aqua;} 
+.pager-wrapper > .pager:active {color: rgb(255, 0, 212);} 

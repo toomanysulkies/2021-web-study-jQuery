@@ -30,9 +30,10 @@ console.log(idx)
 /*************** 글로벌 설정 *****************/
 var idx = 0; //현재 맨 위에 나타나는 .slide 의index
 var zIdx = 2; //맨 위에 나타날  .slide 의 zIndex
-var lastIdx = $('.slide-wrap .slide').length - 1
+var len = $('.slide-wrap .slide').length
+var lastIdx = len - 1
 var interval
-var intervalGap = 2000
+var intervalGap = 4000
 init()
 
 //그룹안에서(자식간의) z index는 상위의 형제 선택자를 넘어서지 못한다 예)) slide들은 chevron을 넘지 못하고 그 밑에서 인덱스 경쟁
@@ -41,8 +42,22 @@ init()
 /*************** 사용자 함수 *****************/
 
 function init() {
-	$('.slide-wrap .slide').eq(idx).css('z-index', zIdx++); interval = setInterval(onNextClick, intervalGap)
+
+	for (var i = 0; i < len; i++) {
+		$('<i class="pager fa fa-circle"></i>').appendTo('.pager-wrapper')
+			.on('click', onPagerClick)
+
+	} $('.slide-wrap .slide').eq(idx).css('z-index', zIdx++)
+	$('.pager-wrapper .pager').eq(idx).addClass('active')
+	interval = setInterval(onNextClick, intervalGap)
 }
+function ani() {
+	$('.pager').removeClass('active')
+	$('.pager').eq(idx).addClass('active')
+	$('.slide-wrap .slide').eq(idx).css('z-index', zIdx++)
+		.stop().fadeOut(0).fadeIn(500)
+}
+
 
 /*************** 이벤트 등록 *****************/
 $('.slide-stage .bt-prev').on('click', onPrevClick)
@@ -51,18 +66,23 @@ $('.slide-stage').on('mouseover', onOver)
 $('.slide-stage').on('mouseleave', onLeave)
 
 /*************** 이벤트 콜백 *****************/
+
+
+function onPagerClick() {
+	idx = $(this).index()
+	ani()
+}
+
+
 function onPrevClick() {
 	idx = (idx === 0) ? lastIdx : idx - 1
-	$('.slide-wrap .slide').eq(idx).css('z-index', zIdx++)
-		.stop().fadeOut(0).fadeIn(500)
+	ani()
 }
 
 function onNextClick() {
 	idx = (idx === lastIdx) ? 0 : idx + 1
-	$('.slide-wrap .slide').eq(idx).css('z-index', zIdx++)
-		.stop().fadeOut(0).fadeIn(500)
+	ani()
 }
-
 function onOver() {
 	clearInterval(interval)
 }
