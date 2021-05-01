@@ -83,15 +83,33 @@ wordSpacing
 lineHeight
 textIndent
 */
-$('.bt-animate').on('click', function () {
-	$('.hero').stop().animate({ 'margin-left': '860px', 'margin-top': 0 }, 1000, function () {
-		$(this).animate({ 'margin-left': '860px', 'margin-top': '200px' }, 500, function () {
-			$(this).animate({ 'margin-left': 0, 'margin-top': '200px' }, 1000, function () {
-				$(this).animate({ 'margin-left': 0, 'margin-top': 0 }, 500, function () {
-					alert('Animation 종료')
-				})
-			})
-		})
-	})
+var interval
+$('.bt-animate').on('click', ani)
+$('.bt-timeout').on('click', function () {
+	setTimeout(ani, 3000)//한번만 실행
 })
+$('.bt-interval').on('click', function () {
+	interval = setInterval(ani, 3600)//clearIntarval 하기 전까지 계속 실행
+})
+$('.bt-clear').on('click', function () {
+	clearInterval(interval)
+})
+
+
+
+function ani() {
+
+	$('.hero').stop().animate({ 'margin-left': '860px', 'margin-top': 0 }, 400, function () {
+		$(this).animate({ 'margin-left': '860px', 'margin-top': '200px' }, 400, function () {
+			$(this).animate({ 'margin-left': 0, 'margin-top': '200px' }, 400, function () {
+				$(this).animate({ 'margin-left': 0, 'margin-top': 0 }, 400, function () { console.log('Animation 종료'); }
+				)
+			}
+			)
+		}
+		)
+	}
+	)
+}
+
 

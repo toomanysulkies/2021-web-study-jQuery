@@ -31,17 +31,24 @@ console.log(idx)
 var idx = 0; //현재 맨 위에 나타나는 .slide 의index
 var zIdx = 2; //맨 위에 나타날  .slide 의 zIndex
 var lastIdx = $('.slide-wrap .slide').length - 1
-$('.slide-wrap .slide').eq(idx).css('z-index', zIdx++)
+var interval
+var intervalGap = 2000
+init()
 
 //그룹안에서(자식간의) z index는 상위의 형제 선택자를 넘어서지 못한다 예)) slide들은 chevron을 넘지 못하고 그 밑에서 인덱스 경쟁
-$('.slide-wrap .slide').eq(0).css('z-index', zIdx++)
+
 
 /*************** 사용자 함수 *****************/
 
+function init() {
+	$('.slide-wrap .slide').eq(idx).css('z-index', zIdx++); interval = setInterval(onNextClick, intervalGap)
+}
 
 /*************** 이벤트 등록 *****************/
 $('.slide-stage .bt-prev').on('click', onPrevClick)
 $('.slide-stage .bt-next').on('click', onNextClick)
+$('.slide-stage').on('mouseover', onOver)
+$('.slide-stage').on('mouseleave', onLeave)
 
 /*************** 이벤트 콜백 *****************/
 function onPrevClick() {
@@ -54,4 +61,12 @@ function onNextClick() {
 	idx = (idx === lastIdx) ? 0 : idx + 1
 	$('.slide-wrap .slide').eq(idx).css('z-index', zIdx++)
 		.stop().fadeOut(0).fadeIn(500)
+}
+
+function onOver() {
+	clearInterval(interval)
+}
+function onLeave() {
+	interval = setInterval(onNextClick, intervalGap);
+
 }
