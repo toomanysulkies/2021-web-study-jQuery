@@ -9,7 +9,6 @@ function init() {  //함수 init은
 	$('.slide-wrap').css('width', (len * 100) + '%') //.slide-wrap의 css-넓이는  인덱스 * 100% (총 넓이)
 	$('.slide-wrap > .slide').css('width', (100 / len) + '%')//.slide의 넓이는 100 나누기 인덱스( 부모인 .slide-wrap를 100%인 1로 받기 때문이다)
 }
-
 /*************** 이벤트 등록 *****************/
 $('.bt-prev').on('click', onPrev)
 $('.bt-next').on('click', onNext)
