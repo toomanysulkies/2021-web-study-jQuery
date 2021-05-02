@@ -25,9 +25,12 @@ function init() {
 	$pagerWrap = $slideStage.find('.pager-wrap')
 	$slideWrap.find('.slide').eq(0).clone().appendTo($slideWrap)
 	$slide = $slideWrap.find('.slide')
-	var html = '<i class="pager fa fa-circle></i>'
-	for (var i = 0; i < slideLastIdxl; i++) $(html).appendTo($pagerWrap).appendTo(onPagerClick)
-
+	slideLen = $slide.length
+	slideLastIdx = slideLen - 1
+	var html = '<i class="pager fa fa-circle"></i>'
+	for (var i = 0; i < slideLastIdx; i++) $pagerWrap.append(html)
+	$pager = $pagerWrap.find('.pager')
+	$pager.click
 
 
 
@@ -37,3 +40,6 @@ function init() {
 
 /*************** 이벤트 콜백 *****************/
 
+function onPagerClick() {
+
+}
