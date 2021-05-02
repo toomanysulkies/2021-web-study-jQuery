@@ -41,6 +41,7 @@ function init() {
 function ani() { //함수 애니
 	$pager.removeClass('active')//페이저의 액티브 클래스를 삭제한다
 	$pager.eq(idx).addClass('active')//지금 인덱스에만 액티브 클래스를 준다
+
 	if (idx === slideLastIdx) $pager.eq(0).addClass('active')//인덱스가 마지막일 때는 액티브를 주고 
 	$slideWrap.stop().animate({ 'left': -idx * 100 + '%' }, aniSpeed) //처음으로 되돌아간다
 }
