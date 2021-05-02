@@ -32,6 +32,7 @@ function init() {
 	for (var i = 0; i < slideLastIdx; i++) $pagerWrap.append(html)
 	$pager = $pagerWrap.find('.pager')
 	$pager.click(onPagerClick)
+	$pager.eq(idx).addClass('active')//새로고침 시에 페이저를 클릭하지 않아도 첫 페이저에 액티브 설정
 
 	interval = setInterval(onNextClick, intervalGap)
 
@@ -41,7 +42,7 @@ function init() {
 function ani() {
 	$pager.removeClass('active')
 	$pager.eq(idx).addClass('active')
-	if (idx === slideLastIdx) $pager.eq(0).addClass('active')
+	if (idx === slideLastIdx) $pager.eq(0).addClass('active')//만약 idx가 마지막이라면 페이저에 액티브
 	$slideWrap.stop().animate({ 'top': -idx * 100 + '%' }, aniSpeed)
 }
 /*************** 이벤트 등록 *****************/
