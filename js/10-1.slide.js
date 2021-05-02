@@ -27,19 +27,62 @@ function init() {
 	$slide = $slideWrap.find('.slide')
 	slideLen = $slide.length
 	slideLastIdx = slideLen - 1
+
 	var html = '<i class="pager fa fa-circle"></i>'
 	for (var i = 0; i < slideLastIdx; i++) $pagerWrap.append(html)
 	$pager = $pagerWrap.find('.pager')
-	$pager.click
+	$pager.click(onPagerClick)
 
+	interval = setInterval(onNextClick, intervalGap)
 
 
 }
+
+function ani() {
+	$pager.removeClass('active')
+	$pager.eq(idx).addClass('active')
+	if (idx === slideLastIdx) $pager.eq(0).addClass('active')
+	$slideWrap.stop().animate({ 'top': -idx * 100 + '%' }, aniSpeed)
+}
 /*************** 이벤트 등록 *****************/
+$slideStage.find('.bt-prev').click(onPrevClick)
+$slideStage.find('.bt-next').click(onNextClick)
+$slideStage.hover(onStageOver, onStageLeave)
 
 
 /*************** 이벤트 콜백 *****************/
 
 function onPagerClick() {
+	idx = $(this).index()
+	ani()
+}
 
+
+
+function onPrevClick() {
+	if (idx === 0) {
+		$slideWrap.css('top', -slideLastIdx * 100 + '%')
+		idx = slideLastIdx - 1
+	} else idx--
+	ani()
+
+}
+
+
+
+function onNextClick() {
+	if (idx === slideLastIdx) {
+		$slideWrap.css('top', 0)
+		idx = 1
+	}
+	else idx++
+	ani()
+}
+
+function onStageOver() {
+	clearInterval(interval)
+}
+
+function onStageLeave() {
+	interval = setInterval(onNextClick, intervalGap)
 }
