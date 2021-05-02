@@ -9,6 +9,11 @@
  .slide-wrap {position: relative;}
 .slide-wrap > .slide {  float: left;} 
 
+.pager-wrap{position: absolute;
+transform: translateX(-50%); left: 50%; bottom:5px; z-index: 2;
+}
+.pager-wrap > .pager {margin:.25em; cursor: pointer;  color: rgb(121, 121, 121);} 
+.pager-wrap > .pager.active {color: rgb(255, 153, 0);} 
 /**********************  *********************/
 
 
