@@ -42,18 +42,16 @@ init()
 /*************** 사용자 함수 *****************/
 
 function init() {
-
+	$('.slide-wrap .slide').eq(idx).css('z-index', zIdx++)
 	for (var i = 0; i < len; i++) {
-		$('<i class="pager fa fa-circle"></i>').appendTo('.pager-wrapper')
-			.on('click', onPagerClick)
-
-	} $('.slide-wrap .slide').eq(idx).css('z-index', zIdx++)
+		$('<i class="pager fa fa-circle"></i>').appendTo('.pager-wrapper').on('click', onPagerClick)
+	}
 	$('.pager-wrapper .pager').eq(idx).addClass('active')
 	interval = setInterval(onNextClick, intervalGap)
 }
 function ani() {
-	$('.pager').removeClass('active')
-	$('.pager').eq(idx).addClass('active')
+	$('.pager-wrapper .pager').removeClass('active')
+	$('.pager-wrapper .pager').eq(idx).addClass('active')
 	$('.slide-wrap .slide').eq(idx).css('z-index', zIdx++)
 		.stop().fadeOut(0).fadeIn(500)
 }

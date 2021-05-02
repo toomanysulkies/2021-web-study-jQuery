@@ -7,8 +7,8 @@
 .slide-stage > .slide-wrap {position: relative; z-index: 1;}
 .slide-stage > .slide-wrap > .slide {position: absolute; width: 100%; z-index: 1;} 
 
-.pager-wrapper{
-	text-align: center; margin:.5em 0;
+.pager-wrapper{position: absolute;
+transform: translateX(-50%); left: 50%; bottom:5px; z-index: 2;
 }
-.pager-wrapper > .pager {margin:.25em; cursor: pointer;  color: aqua;} 
-.pager-wrapper > .pager:active {color: rgb(255, 0, 212);} 
+.pager-wrapper > .pager {margin:.25em; cursor: pointer;  color: rgb(121, 121, 121);} 
+.pager-wrapper > .pager.active {color: rgb(255, 153, 0);} 
